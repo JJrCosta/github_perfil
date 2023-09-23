@@ -1,0 +1,18 @@
+:root {
+    --corPrincipal: #121212;
+    --corSecundaria: #efefef;
+    --corDestaque: #85d885;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+}
