@@ -3,7 +3,8 @@ import styles from './ReposList.module.css';
 
 const ReposList = ({userName}) => {
     const [repos, setRepos] = useState([]);
-    const [ isLoading, setIsLoading] = useState();
+    const [isLoading, setIsLoading] = useState();
+    const [error, setError] = useState();
 
     useEffect(() => {
         setIsLoading(true)
@@ -15,6 +16,9 @@ const ReposList = ({userName}) => {
                 setRepos(resJson);
             }, 2000);
         })
+        .catch(e => {
+            setError(true)
+        })
     }, [userName])
 
     return (
@@ -23,19 +27,19 @@ const ReposList = ({userName}) => {
                 <h2>Carregando...</h2>
             ):(
                 <ul className={styles.list}>
-                {repos.map(({id, name, language, homepage, html_url}) => (
-                    <li className={styles.listItem} key={id}>
-                        <div  className={styles.itemName}>
-                            <b>Nome: </b>
-                            {name}
-                        </div>
-                        <div className={styles.itemLanguage}>
-                        <b>Linguagem:</b>
-                        {language}
-                        </div>
-                        <a className={styles.itemLink} target="_blank" href={homepage}>Visitar</a>
-                        <a className={styles.itemLink} target="_blank" href={html_url}>Ver código no GitHub</a>
-                    </li>
+                    {repos.map(({id, name, language, homepage, html_url}) => (
+                        <li className={styles.listItem} key={id}>
+                            <div  className={styles.itemName}>
+                                <b>Nome: </b>
+                                {name}
+                            </div>
+                            <div className={styles.itemLanguage}>
+                            <b>Linguagem:</b>
+                            {language}
+                            </div>
+                            <a className={styles.itemLink} target="_blank" href={homepage}>Visitar</a>
+                            <a className={styles.itemLink} target="_blank" href={html_url}>Ver código no GitHub</a>
+                        </li>
                     ))}
                 </ul>
             )}

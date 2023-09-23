@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <input type="text" onBlur={(e) => setUserName(e.target.value)}/>
+      <input className='userInput' placeholder='Buscar usuário...' type="text" onBlur={(e) => setUserName(e.target.value)}/>
       {userName.length > 4 && (
         <>
         <Perfil userName={userName}/>

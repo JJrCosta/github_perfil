@@ -16,3 +16,14 @@
     margin: 0 auto;
     width: 100%;
 }
+
+.userInput {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9;
+    padding: 6px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
